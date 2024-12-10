@@ -4,14 +4,14 @@ pipeline{
     stages{
         stage("Code Clone"){
             steps{
-                echo "Code Clone Stage"
                 git url: "https://github.com/AbulFaizBangi/node-todo-cicd.git", branch: "master"
+                 echo "Code Cloning Success"
             }
         }
         stage("Code Build & Test"){
             steps{
-                echo "Code Build Stage"
                 sh "docker build -t node-app ."
+                echo "Code Build Success"
             }
         }
         stage("Push To DockerHub"){
